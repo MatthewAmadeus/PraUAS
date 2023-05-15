@@ -1,0 +1,562 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title> 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+ 
+</head>
+<body>
+  <center class="row" style="background-color: #c53838; padding-bottom: 20px;">
+    <h1 style="color: white"><b>Dashborad Pabrik</b></h1>
+    <h2 style="color: white">Perfomance: <span id="performance"></span>/10</h2>
+    <div class="row" style="display: flex; justify-content: center;">
+      <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+        <canvas id="performance_chart"></canvas>
+      </div>
+    </div>
+  </center>
+
+
+
+
+  <div style="background-color: #a32525; padding: 1px">
+    <center>
+      <h1 style="color: white">Smart Farm</h1>
+      <h3 style="color: white">actuator1: <span id="actuator1"></span> %</h3>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+          <canvas id="actuator2_chart"></canvas>
+        </div>
+      </div>
+    </center>
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>1 Subsistem 1</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor111: <span id="sensor111"></span></h3>
+        <canvas id="sensor111_chart"></canvas>
+      </div>
+      <div class="col-md-3"> 
+        <h3>sensor112: <span id="sensor112"></span></h3>
+        <canvas id="sensor112_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor113: <span id="sensor113"></span></h3>
+        <canvas id="sensor113_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator11: <span id="actuator11"></span></h3>
+        <canvas id="actuator11_chart"></canvas>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>1 Subsistem 2</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor121: <span id="sensor121"></span></h3>
+        <canvas id="sensor121_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor122: <span id="sensor122"></span></h3>
+        <canvas id="sensor122_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor123: <span id="sensor123"></span></h3>
+        <canvas id="sensor123_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator12: <span id="actuator12"></span></h3>
+        <canvas id="actuator12_chart"></canvas>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>1 Subsistem 3</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor131: <span id="sensor131"></span></h3>
+        <canvas id="sensor131_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor132: <span id="sensor132"></span></h3>
+        <canvas id="sensor132_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor133: <span id="sensor133"></span></h3>
+        <canvas id="sensor133_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator13: <span id="actuator13"></span></h3>
+        <canvas id="actuator13_chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div style="background-color: #a32525; padding: 1px">
+    <center>
+      <h1 style="color: white">Smart Plantation</h1>
+      <h3 style="color: white">actuator2: <span id="harvest"> %</span></h3>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+          <canvas id="actuator2_chart"></canvas>
+        </div>
+      </div>
+    </center>
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>2 subsistem 1</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor211: <span id="sensor211"></span></h3>
+        <canvas id="sensor211_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor212: <span id="sensor212"></span></h3>
+        <canvas id="sensor212_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor213: <span id="sensor213"></span></h3>
+        <canvas id="sensor213_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator21: <span id="actuator21"></span></h3>
+        <canvas id="actuator21_chart"></canvas>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Sayuran</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor221: <span id="sensor221"></span></h3>
+        <canvas id="sensor221_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor222: <span id="sensor222"></span></h3>
+        <canvas id="sensor222_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor223: <span id="sensor223"></span></h3>
+        <canvas id="sensor223_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator22: <span id="actuator22"></span></h3>
+        <canvas id="actuator22_chart"></canvas>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Buah-buahan</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor231: <span id="sensor231"></span></h3>
+        <canvas id="sensor231_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor232: <span id="sensor232"></span></h3>
+        <canvas id="sensor232_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor233: <span id="sensor233"></span></h3>
+        <canvas id="sensor233_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator23: <span id="actuator23"></span></h3>
+        <canvas id="actuator23_chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: #a32525; padding: 1px">
+    <center>
+      <h1 style="color: white">Smart Restaurant</h1>
+      <h3 style="color: white">actuator3: <span id="actuator3"></span> %</h3>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+          <canvas id="actuator3_chart"></canvas>
+        </div>
+      </div>
+    </center>
+    <div class="row" style="border-radius: 10px; margin: 10px; background-color: #D8D8D8;">
+      <div><center><h2>Deteksi Musim</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor311: <span id="sensor311"></span></h3>
+        <canvas id="sensor311_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor312: <span id="sensor312"></span></h3>
+        <canvas id="sensor312_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor313: <span id="sensor313"></span></h3>
+        <canvas id="sensor313_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator31: <span id="actuator31"></span></h3>
+        <canvas id="actuator31_chart"></canvas>
+      </div> 
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Deteksi Hasil Penjualan Berfluktuasi</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor321: <span id="sensor321"></span></h3>
+        <canvas id="sensor321_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor322: <span id="sensor322"></span></h3>
+        <canvas id="sensor322_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor323: <span id="sensor323"></span></h3>
+        <canvas id="sensor323_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator32: <span id="actuator32"></span></h3>
+        <canvas id="actuator32_chart"></canvas>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Deteksi Jumlah Pengunjung Restoran</h2></center></div>
+      <div class="col-md-3">
+        <h3>sensor331: <span id="sensor331"></span></h3>
+        <canvas id="sensor331_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor332: <span id="sensor332"></span></h3>
+        <canvas id="sensor332_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>sensor333: <span id="sensor333"></span></h3>
+        <canvas id="sensor333_chart"></canvas>
+      </div>
+      <div class="col-md-3">
+        <h3>actuator33: <span id="actuator33"></span></h3>
+        <canvas id="actuator33_chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  function initializeGraph(chart_var, endpoint, id, color){
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+        drawLineGraph(chart_var, data, id, color);
+      },
+      error: function(error_data) {
+        console.log(error_data);
+      }
+    })
+  }
+
+  function drawLineGraph(chart_var, data, id, color) {
+    var labels = data.time_data;
+    var chartLabel = data.chart_label;
+    var chartdata = data.chart_data;
+    var ctx = document.getElementById(id).getContext('2d');
+    window[chart_var] = new Chart(ctx, {
+        // The type of chart we want to create
+      type: 'line',
+  
+        // The data for our dataset
+      data: {
+        labels: labels,
+        datasets: [{
+          label: chartLabel,
+          backgroundColor: 'rgb(255, 100, 200, 0)',
+          borderColor: color,
+          data: chartdata,
+        }]
+      },
+
+      // Configuration options go here
+      options: {
+        elements: {
+            line: {
+              tension: 0
+            }
+          },
+        scales: {
+          xAxes: [{
+            display: true,
+          }],
+          yAxes: [{
+              ticks: {
+                  // suggestedMin: 30,
+                  // suggestedMax: 150,
+              }
+          }]
+        }
+      }
+  
+    });
+  }
+
+  function updateGraph(chart_var, endpoint) {
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+          window[chart_var].data.labels = data.time_data;
+          window[chart_var].data.datasets[0].data = data.chart_data;
+          window[chart_var].update();
+      },
+      error: function(error_data) {
+          console.log(error_data);
+      }
+    })
+  }
+
+  function updateSensorValue(endpoint, id) {
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+          var value = document.getElementById(id);
+          value.innerHTML = data.value;
+      },
+      error: function(error_data) {
+          console.log(error_data);
+      }
+    })
+  }
+
+  function updateActuatorState(endpoint, id) {
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+          var state = document.getElementById(id);
+          state.innerHTML = data.state;
+      },
+      error: function(error_data) {
+          console.log(error_data);
+      }
+    })
+  }
+
+  var sensor111_graph;
+  var sensor112_graph;
+  var sensor113_graph;
+  var actuator11_graph;
+
+  var sensor121_graph;
+  var sensor122_graph;
+  var sensor123_graph;
+  var actuator12_graph;
+
+  var sensor131_graph;
+  var sensor132_graph;
+  var sensor133_graph;
+  var actuator13_graph;
+
+  var sensor211_graph;
+  var sensor212_graph;
+  var sensor213_graph;
+  var actuator21_graph;
+
+  var sensor221_graph;
+  var sensor222_graph;
+  var sensor223_graph;
+  var actuator22_graph;
+
+  var sensor231_graph;
+  var sensor232_graph;
+  var sensor233_graph;
+  var actuator23_graph;
+
+  var sensor311_graph;
+  var sensor312_graph;
+  var sensor313_graph;
+  var actuator31_graph;
+
+  var sensor321_graph;
+  var sensor322_graph;
+  var sensor323_graph;
+  var actuator32_graph;
+
+  var sensor331_graph;
+  var sensor332_graph;
+  var sensor333_graph;
+  var actuator33_graph;
+
+  var actuator1_graph;
+  var actuator2_graph;
+  var actuator3_graph;
+  var performance_graph;
+
+  initializeGraph('sensor111_graph', '/sensor/sensor111', 'sensor111_chart', 'rgb(12, 19, 79)');
+  initializeGraph('sensor112_graph', '/sensor/sensor112', 'sensor112_chart', 'rgb(29, 38, 125)');
+  initializeGraph('sensor113_graph', '/sensor/sensor113', 'sensor113_chart', 'rgb(92, 70, 156)');
+  initializeGraph('actuator11_graph', '/actuator/actuator11', 'actuator11_chart', 'rgb(19, 0, 90)');
+
+  initializeGraph('sensor121_graph', '/sensor/sensor121', 'sensor121_chart', 'rgb(113, 73, 198)');
+  initializeGraph('sensor122_graph', '/sensor/sensor122', 'sensor122_chart', 'rgb(252, 41, 71)');
+  initializeGraph('sensor123_graph', '/sensor/sensor123', 'sensor123_chart', 'rgb(254, 98, 68)');
+  initializeGraph('actuator12_graph', '/actuator/actuator12', 'actuator12_chart', 'rgb(28, 130, 173)');
+
+  initializeGraph('sensor131_graph', '/sensor/sensor131', 'sensor131_chart', 'rgb(25, 24, 37)');
+  initializeGraph('sensor132_graph', '/sensor/sensor132', 'sensor132_chart', 'rgb(134, 93, 255)');
+  initializeGraph('sensor123_graph', '/sensor/sensor133', 'sensor133_chart', 'rgb(227, 132, 255)');
+  initializeGraph('actuator13_graph', '/actuator/actuator13', 'actuator13_chart', 'rgb(0, 51, 124)');
+
+  initializeGraph('sensor211_graph', '/sensor/sensor211', 'sensor211_chart', 'rgb(55, 48, 107)');
+  initializeGraph('sensor212_graph', '/sensor/sensor212', 'sensor212_chart', 'rgb(102, 52, 127)');
+  initializeGraph('sensor213_graph', '/sensor/sensor213', 'sensor213_chart', 'rgb(158, 71, 132)');
+  initializeGraph('actuator21_graph', '/actuator/actuator21', 'actuator21_chart', 'rgb(210, 118, 133)');
+
+  initializeGraph('sensor221_graph', '/sensor/sensor221', 'sensor221_chart', 'rgb(22, 33, 62)');
+  initializeGraph('sensor222_graph', '/sensor/sensor222', 'sensor222_chart', 'rgb(15, 52, 96)');
+  initializeGraph('sensor223_graph', '/sensor/sensor223', 'sensor223_chart', 'rgb(83, 52, 131)');
+  initializeGraph('actuator22_graph', '/actuator/actuator22', 'actuator22_chart', 'rgb(233, 69, 96)');
+
+  initializeGraph('sensor231_graph', '/sensor/sensor231', 'sensor231_chart', 'rgb(55, 48, 107)');
+  initializeGraph('sensor232_graph', '/sensor/sensor232', 'sensor232_chart', 'rgb(102, 52, 127)');
+  initializeGraph('sensor233_graph', '/sensor/sensor233', 'sensor233_chart', 'rgb(158, 71, 132)');
+  initializeGraph('actuator23_graph', '/actuator/actuator23', 'actuator23_chart', 'rgb(210, 118, 133)');
+
+  initializeGraph('sensor311_graph', '/sensor/sensor311', 'sensor311_chart', 'rgb(70, 36, 76)');
+  initializeGraph('sensor312_graph', '/sensor/sensor312', 'sensor312_chart', 'rgb(113, 43, 117)');
+  initializeGraph('sensor313_graph', '/sensor/sensor313', 'sensor313_chart', 'rgb(199, 75, 80)');
+  initializeGraph('actuator31_graph', '/actuator/actuator31', 'actuator31_chart', 'rgb(212, 155, 84)');
+
+  initializeGraph('sensor321_graph', '/sensor/sensor321', 'sensor321_chart', 'rgb(25, 26, 25)');
+  initializeGraph('sensor322_graph', '/sensor/sensor322', 'sensor322_chart', 'rgb(30, 81, 40)');
+  initializeGraph('sensor323_graph', '/sensor/sensor323', 'sensor323_chart', 'rgb(78, 159, 61)');
+  initializeGraph('actuator32_graph', '/actuator/actuator32', 'actuator32_chart', 'rgb(3, 201, 136)');
+
+  initializeGraph('sensor331_graph', '/sensor/sensor331', 'sensor331_chart', 'rgb(154, 6, 128)');
+  initializeGraph('sensor332_graph', '/sensor/sensor332', 'sensor332_chart', 'rgb(121, 1, 140)');
+  initializeGraph('sensor333_graph', '/sensor/sensor333', 'sensor333_chart', 'rgb(76, 0, 112)');
+  initializeGraph('actuator33_graph', '/actuator/actuator33', 'actuator33_chart', 'rgb(22, 0, 64)');
+
+  initializeGraph('actuator1_graph', '/actuator/actuator1', 'actuator1_chart', 'rgb(139, 24, 116)');
+  initializeGraph('actuator2_graph', '/actuator/actuator2', 'actuator2_chart', 'rgb(183, 19, 117)');
+  initializeGraph('actuator3_graph', '/actuator/actuator3', 'actuator3_chart', 'rgb(252, 79, 0)');
+  initializeGraph('performance_graph', '/actuator/performance', 'performance_chart', 'rgb(247, 149, 64)');
+
+  setInterval(function(){
+    updateSensorValue('/sensor/sensor111', 'sensor111');
+    updateSensorValue('/sensor/sensor112', 'sensor112');
+    updateSensorValue('/sensor/sensor113', 'sensor113');
+    updateActuatorState('/actuator/actuator11', 'actuator11');
+
+    updateSensorValue('/sensor/sensor121', 'sensor121');
+    updateSensorValue('/sensor/sensor121', 'sensor122');
+    updateSensorValue('/sensor/sensor121', 'sensor123');
+    updateActuatorState('/actuator/actuator12', 'actuator12');
+
+    updateSensorValue('/sensor/sensor131', 'sensor131');
+    updateSensorValue('/sensor/sensor132', 'sensor132');
+    updateSensorValue('/sensor/sensor133', 'sensor133');
+    updateActuatorState('/actuator/actuator13', 'actuator13');
+
+    updateSensorValue('/sensor/sensor211', 'sensor211');
+    updateSensorValue('/sensor/sensor212', 'sensor212');
+    updateSensorValue('/sensor/sensor213', 'sensor213');
+    updateActuatorState('/actuator/actuator21', 'actuator21');
+
+    updateSensorValue('/sensor/sensor221', 'sensor221');
+    updateSensorValue('/sensor/sensor222', 'sensor222');
+    updateSensorValue('/sensor/sensor223', 'sensor223');
+    updateActuatorState('/actuator/actuator22', 'actuator22');
+
+    updateSensorValue('/sensor/sensor231', 'sensor231');
+    updateSensorValue('/sensor/sensor232', 'sensor232');
+    updateSensorValue('/sensor/sensor233', 'sensor233');
+    updateActuatorState('/actuator/actuator23', 'actuator23');
+
+    updateSensorValue('/sensor/sensor311', 'sensor311');
+    updateSensorValue('/sensor/sensor312', 'sensor312');
+    updateSensorValue('/sensor/sensor313', 'sensor313');
+    updateActuatorState('/actuator/actuator31', 'actuator31');
+
+    updateSensorValue('/sensor/sensor321', 'sensor321');
+    updateSensorValue('/sensor/sensor322', 'sensor322');
+    updateSensorValue('/sensor/sensor323', 'sensor323');
+    updateActuatorState('/actuator/actuator32', 'actuator32');
+
+    updateSensorValue('/sensor/sensor331', 'sensor331');
+    updateSensorValue('/sensor/sensor332', 'sensor332');
+    updateSensorValue('/sensor/sensor333', 'sensor333');
+    updateActuatorState('/actuator/actuator33', 'actuator33');
+
+    updateActuatorState('/actuator/actuator1', 'actuator1');
+    updateActuatorState('/actuator/actuator2', 'actuator2');
+    updateActuatorState('/actuator/actuator3', 'actuator3');
+    updateActuatorState('/actuator/performance', 'performance');
+
+    updateGraph('sensor111_graph', '/sensor/sensor111');
+    updateGraph('sensor112_graph', '/sensor/sensor112');
+    updateGraph('sensor113_graph', '/sensor/sensor113');
+    updateGraph('actuator11_graph', '/actuator/actuator11');
+
+    updateGraph('sensor121_graph', '/sensor/sensor121');
+    updateGraph('sensor122_graph', '/sensor/sensor122');
+    updateGraph('sensor123_graph', '/sensor/sensor123');
+    updateGraph('actuator12_graph', '/actuator/actuator12');
+
+    updateGraph('sensor131_graph', '/sensor/sensor131');
+    updateGraph('sensor132_graph', '/sensor/sensor132');
+    updateGraph('sensor133_graph', '/sensor/sensor133');
+    updateGraph('actuator13_graph', '/actuator/actuator13');
+
+    updateGraph('sensor211_graph', '/sensor/sensor211');
+    updateGraph('sensor212_graph', '/sensor/sensor212');
+    updateGraph('sensor213_graph', '/sensor/sensor213');
+    updateGraph('actuator21_graph', '/actuator/actuator21');
+
+    updateGraph('sensor221_graph', '/sensor/sensor221');
+    updateGraph('sensor222_graph', '/sensor/sensor222');
+    updateGraph('sensor223_graph', '/sensor/sensor223');
+    updateGraph('actuator22_graph', '/actuator/actuator22');
+
+    updateGraph('sensor231_graph', '/sensor/sensor231');
+    updateGraph('sensor232_graph', '/sensor/sensor232');
+    updateGraph('sensor233_graph', '/sensor/sensor233');
+    updateGraph('actuator23_graph', '/actuator/actuator23');
+
+    updateGraph('sensor311_graph', '/sensor/sensor311');
+    updateGraph('sensor312_graph', '/sensor/sensor312');
+    updateGraph('sensor313_graph', '/sensor/sensor313');
+    updateGraph('actuator31_graph', '/actuator/actuator31');
+
+    updateGraph('sensor321_graph', '/sensor/sensor321');
+    updateGraph('sensor322_graph', '/sensor/sensor322');
+    updateGraph('sensor323_graph', '/sensor/sensor323');
+    updateGraph('actuator32_graph', '/actuator/actuator32');
+
+    updateGraph('sensor331_graph', '/sensor/sensor331');
+    updateGraph('sensor332_graph', '/sensor/sensor332');
+    updateGraph('sensor333_graph', '/sensor/sensor333');
+    updateGraph('actuator31_graph', '/actuator/actuator31');
+
+
+    updateGraph('actuator1_graph', '/actuator/actuator1');
+    updateGraph('actuator2_graph', '/actuator/actuator2');
+    updateGraph('actuator3_graph', '/actuator/actuator3');
+    updateGraph('performance_graph', '/actuator/performance');
+  }, 2000);
+
+</script>
+<style>
+  .containers {
+    padding: 20px;
+  }
+  h3 {
+    text-align: center;
+  }
+</style>
